@@ -59,6 +59,12 @@
             width: 205px;
         }
     }
+    .carousel{
+        &__inner{
+            width: 575px;
+        }
+    }
+    
 }
 
 @media (max-width:  767px){
@@ -89,6 +95,28 @@
         }
 
     }
+
+    .catalog{
+        &__tab{
+            font-size: 15px;
+
+        }
+        &-item{
+            width: 240px;
+            &__price{
+                font-size: 14px;
+            }
+            &__content{
+                padding-right: 5px;
+            }
+        }
+    }
+    .button{
+        &_mini{
+            width: 115px;
+            height: 30px;
+        }
+    }
 }
 @media (max-width:  575px){
     .header{
@@ -118,5 +146,27 @@
     }
     .title{
         font-size: 22px;
+    }
+
+
+    .catalog{
+        &__tab{
+            font-size: 9px;
+        }
+        &-item{
+            
+            display: block;
+            margin: 0 auto;
+            margin-bottom: 20px;
+            width: 300px;
+            &__price{
+                font-size: 16px;
+            }
+        }   
+    }
+    .button{
+        &_mini{
+            height: 38px;
+        }
     }
 }
