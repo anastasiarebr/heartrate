@@ -15,6 +15,7 @@
 }
 
 @media (max-width:  991px){
+
     .header{
         &__official{
             margin-right: 22px;
@@ -67,6 +68,25 @@
     .carousel{
         &__inner{
             width: 575px;
+        }
+    }
+    .footer{
+        &__info{
+            width: 370px;
+            height: 230px;
+        }
+        &__addr{
+            font-size: 15px;
+            margin-bottom: 25px;
+        }
+        &__phone{
+            font-size: 15px;
+            margin-bottom: 25px;
+        }
+        &__social-item{
+            img{
+                height: 19px;
+            }
         }
     }
     
