@@ -60,30 +60,6 @@ $(document).ready(function(){
 
 
     //валидация форм
-    
-    // $('#consultation-form').validate();
-    // $('#consultation form').validate({
-    //     rules:{
-    //         name: "required",
-    //         phone: "required",
-    //         email: {
-    //             required: true,
-    //             email: true
-    //         }
-
-    //         },
-    //         messages: {
-    //             name: "Пожалуйста, введите свое имя",
-    //             phone: "Пожалуйста, введите номер телефона",
-    //             email: {
-    //               required: "Введите свою почту",
-    //               email: "Неправильно введен адрес почтыname@domain.com"
-    //             }
-    //           }
-
-        
-    // });
-    // $('#order form').validate();
 
     function validateForms(form){
         $(form).validate({
@@ -111,5 +87,21 @@ $(document).ready(function(){
     validateForms('#consultation form');
     validateForms('#order form');
 
+    $('input[name=phone]').mask("+7(999) 999-99-99");
     
+    $('form').submit(function(e){
+        e.preventDefault();
+        $.ajax({
+            type: "POST",
+            url: "mailer/smart.php",
+            data: $(this).serialize()
+        }).done(function(){
+            $(this).find("input").val("");
+            $('#consultation, #order').fadeOut();
+            $('.overlay, #thanks').fadeIn();
+
+            $('form').trigger('reset');
+        });
+        return false;
+    });
   });
