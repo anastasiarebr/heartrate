@@ -136,7 +136,7 @@
             list-style-type: none;
             &_active{
                 transform: translateX(-100%);
-                margin-left: 20px;
+                margin-left: -20px;
             }
             li{
                 position: relative;
@@ -166,7 +166,7 @@
             text-transform: uppercase;
             bottom: 0;
             left: 50%;
-            transform: translateX(calc(-50% - 19px));
+            transform: translateX(calc(-50%));
             display: block;
             &:hover{
                 color: $main-color;
