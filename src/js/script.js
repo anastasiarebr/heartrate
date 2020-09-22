@@ -40,4 +40,76 @@ $(document).ready(function(){
 
     toggleSlide('.catalog-item__link');
     toggleSlide('.catalog-item__back');
+
+    //модальные окна
+
+    $('[data-modal=consultation]').on('click', function() {
+        $('.overlay, #consultation').fadeIn();
+    });
+
+    $('.modal__close').on('click', function() {
+        $('.overlay, #consultation, #thanks, #order').fadeOut();
+    });
+    
+    $('.button_mini').each(function(i) {
+        $(this).on('click', function(){
+            $('#order .modal__descr').text($('.catalog-item__subtitle').eq(i).text());
+            $('.overlay, #order').fadeIn();
+        });
+    });
+
+
+    //валидация форм
+    
+    // $('#consultation-form').validate();
+    // $('#consultation form').validate({
+    //     rules:{
+    //         name: "required",
+    //         phone: "required",
+    //         email: {
+    //             required: true,
+    //             email: true
+    //         }
+
+    //         },
+    //         messages: {
+    //             name: "Пожалуйста, введите свое имя",
+    //             phone: "Пожалуйста, введите номер телефона",
+    //             email: {
+    //               required: "Введите свою почту",
+    //               email: "Неправильно введен адрес почтыname@domain.com"
+    //             }
+    //           }
+
+        
+    // });
+    // $('#order form').validate();
+
+    function validateForms(form){
+        $(form).validate({
+            rules:{
+                name: "required",
+                phone: "required",
+                email: {
+                    required: true,
+                    email: true
+                }
+    
+                },
+                messages: {
+                    name: "Пожалуйста, введите свое имя",
+                    phone: "Пожалуйста, введите номер телефона",
+                    email: {
+                      required: "Введите свою почту",
+                      email: "Неправильно введен адрес почтыname@domain.com"
+                    }
+                  }
+        });
+    };
+
+    validateForms('#consultation-form');
+    validateForms('#consultation form');
+    validateForms('#order form');
+
+    
   });
